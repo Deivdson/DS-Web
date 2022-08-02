@@ -1,0 +1,414 @@
+html body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-size: 14px;
+}
+.nav{
+    width: 130%;
+    height: 122px;
+    background: rgba(255,222,247,1);
+    opacity: 1;
+    position: absolute;
+    overflow: hidden;
+}
+
+.search{
+    width: 336px;
+    height: 52px;
+    background: rgba(255,222,247,1);
+    opacity: 1;
+    position: absolute;
+    top: 140px;
+    margin-left: 75%;
+    border-top-left-radius: 63px;
+    border-top-right-radius: 63px;
+    border-bottom-left-radius: 63px;
+    border-bottom-right-radius: 63px;
+    overflow: hidden;
+}
+.dailyschedule{
+    width: 324px;
+    height: 50px;
+    background: url("../images/v109_3574.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    top: 51px;
+    left: 31px;
+    overflow: hidden;
+}
+.botao{
+    background: url("../images/v9_59.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    cursor: pointer;
+    position: absolute;
+    top: 302px;
+    left: 75px;
+    border-radius: 60px;
+}
+.botao-roxo {
+    width: 144px;
+    height: 57px;
+    background: rgba(81,78,190,1);
+    opacity: 1;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .botao-roxo:hover{
+    background-color: blueviolet;
+    color: white;
+    cursor: pointer;
+  }
+
+  .triangle {
+    
+    border-bottom:120px solid red; 
+    border-left:60px solid white; 
+    border-right:60px solid white;
+    transform: rotate(45deg);
+    width: 51px;
+    height: 52px;
+    background: rgba(255,222,247,1);
+    opacity: 1;
+    position: absolute;
+    top: 1305px;
+    left: 72px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --primary-color: #ffdef8;
+    --scnd-color: #514EBE;
+    --brand-dark: #00453A;
+  
+    font-size: 62.5%; /* 1rem = 10px */
+    --nav-height: 7.2rem;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+  }
+  
+  body {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.4rem;
+  }
+  
+  .nav1 {
+    display: flex;
+    background-color: var(--primary-color);
+    width: 100vw;
+    height: var(--nav-height);
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+  }
+  .nav2 {
+    display: flex;
+    width: 100vw;
+    height: var(--nav-height);
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+  }
+  .menu ul li a {
+    text-decoration: none;
+    color: var(--scnd-color);
+    padding: 0.5rem 1rem;
+    display: block;
+  }
+  
+  .menu li {
+    list-style-type: none;
+    position: relative;
+    float: left;
+    left: 10rem;
+  }
+  
+  .menu svg {
+    position: absolute;
+    left: 80rem;
+  }
+  
+  nav .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logo {
+    position: relative;
+    left: 2rem;
+    z-index: 100;
+  }
+  
+  #home {
+    padding-top: calc(4.1rem + var(--nav-height));
+  }
+  
+  #home::before {
+    content: '';
+    width: 100%;
+    height: calc(108rem + var(--nav-height));
+    background-color: var(--brand-light);
+    display: block;
+  
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  
+  
+  header {
+    background-color: var(--primary-color);
+    display: flex;
+    width: 120rem;
+    height: 45rem;
+    position: absolute;
+    top: 10rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  header h1 {
+    font-size: 3.1rem;
+    line-height: 130%;
+    margin-top: 10rem;
+    margin-left: 7rem;
+  }
+  
+  header p {
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 150%;
+    position: absolute;
+    width: 50rem;
+    height: 14rem;
+    left: 7rem;
+    top: 16rem;
+  }
+  
+  header img {
+    width: 35rem;
+    height: 35rem;
+    position: relative;
+    top: 4rem;
+    left: 45rem;
+  }
+  
+  .button {
+    background: var(--scnd-color);
+  
+    border: none;
+    border-radius: 4rem;
+  
+    margin-bottom: 6rem;
+  
+    padding: 1.6rem 3.2rem;
+    width: fit-content;
+  
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 700;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+  
+    text-decoration: none;
+  
+    transition: background 200ms;
+  }
+  
+  header .button {
+    position: absolute;
+    left: 7rem;
+    top: 26rem;
+  }
+  
+  .button:hover {
+    background-color: #6486FF;
+  }
+  
+  #beneficios .beneficio {
+    position: relative;
+    top: 50rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 3.2rem;
+  }
+  
+  #beneficios .bnfc {
+    padding: 2.4rem;
+    text-align: left;
+    display: flex;
+  }
+  
+  #beneficios .bnfc img {
+    width: 30rem;
+    height: 30rem;
+  }
+  
+  #beneficios .bnfc p {
+    width: 50rem;
+    position: relative;
+    top: 9rem;
+    left: -10rem;
+  }
+  
+  #beneficios .bnfc h2 {
+    position: relative;
+    left: 25%;
+    margin-block: 1.6rem;
+  }
+  
+  #team {
+    position: relative;
+    top: 50rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  #team h2 {
+    position: relative;
+    left: 50%;
+  }
+  
+  #team svg {
+    position: relative;
+    top: 15rem;
+  }
+  
+  #plano {
+    position: relative;
+    top: 50rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  #plano .box {
+    background-color: var(--scnd-color);
+    display: flex;
+    width: 50rem;
+    height: 50rem;
+    position: relative;
+    top: 30rem;
+    left: 25%;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #plano .box span {
+    color: white;
+  }
+  
+  #plano .box h2 {
+    color: white;
+    font-size: 3rem;
+    position: relative;
+    top: -4rem;
+  }
+  
+  #plano .box span {
+    position: relative;
+    top: 5rem;
+  }
+  
+  #plano .button {
+    background-color: #6486FF;
+    position: relative;
+    top: 8rem;
+  }
+  
+  .h2 {
+    position: relative;
+    left: 50%;
+  }
+  
+  footer {
+    background-color: var(--primary-color);
+    padding-block: 6rem;
+  
+    text-align: left;
+  
+    color: white;
+  
+    position: relative;
+    top: 90rem;
+  }
+  
+  footer .logo svg {
+    width: 23.6rem;
+    height: 3.1rem;
+  }
+  
+  footer .logo {
+    display: inline-block;
+    margin-bottom: 2.4rem;
+  }
+  
+  footer p {
+    color: var(--scnd-color);
+    line-height: 2;
+    margin-left: 6rem;
+    margin-bottom: 3.2rem;
+  }
+.equipe{
+  width: 100%;
+  height: 314px;
+  background: url("../images/v9_62.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 2623px;
+  left: 65px;
+  overflow: hidden;
+}
+.equipe-2{
+  width: 159px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 0px;
+  left: 575px;
+  font-family: Nunito;
+  font-weight: Bold;
+  font-size: 50px;
+  opacity: 1;
+  text-align: left;
+}

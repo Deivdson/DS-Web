@@ -1,0 +1,17 @@
+    <h3>
+        <a href="{% url 'cronograma:cronogramaForm' %}">
+            Novo Cronograma
+        </a>
+    </h3>
+
+{% if latest_ds_list %}
+    <ul>
+        {% for cronograma in latest_ds_list %}
+        <li><a href="{% url 'cronograma:detalhes' cronograma.id %}">
+            {{ cronograma.titulo }}
+        </a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhum cronograma disponível.</p>
+{% endif %}

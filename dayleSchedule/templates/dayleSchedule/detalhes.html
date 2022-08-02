@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Abhaya+Libre&display=swap" rel="stylesheet" />
+
+        <link href="./css/main.css" rel="stylesheet" />
+        <link href="./css/style.css" rel="stylesheet" />
+        </head>
+        <body>
+
+            <div class="v11_84">
+                <div class="v12_69">
+                    <div class="v12_70"></div>
+                    <span class="v12_71">Editar</span>
+                    <div class="v12_72"></div>
+                    <div class="v12_73"></div>
+                </div>
+                <div class="v12_125">
+                    <div class="v12_126"></div>
+                    <span class="v12_127">Compartilhar</span>
+                    <div class="v12_128"></div>
+                    <div class="v12_129"></div>
+                </div>
+                <div class="v12_130">
+                    <div class="v12_131"></div>
+                    <span class="v12_132">Exportar</span>
+                    <div class="v12_133"></div>
+                    <div class="v12_134"></div>
+                </div>
+                <a href="resultado_diario.html">
+                  <span class="v87_13" style="left: 300px;"><</span>
+                </a>
+                <span class="v87_13">Cronograma Semanal</span>
+                <br>
+                <br>
+                <br>
+                <h1>{{ cronograma.nome }}</h1>
+                <h3>Aluno: {{ cronograma.aluno.nome }}</h3>
+                <a href="resultado_mensal.html">
+                  <span class="v87_13" style="left: 1130px;">></span>
+                </a>
+                <div class="name"></div>
+                <div class="name"></div>
+                <div class="name"></div>
+                <div class="nav"></div>
+
+                <div class="v109_3814">
+                    <div class="v109_3815">
+                        <div class="v109_3816">
+                            <div class="v109_3817"></div>
+                            <div class="v109_3818"></div>
+                            <div class="v109_3819"></div>
+                            <div class="v109_3820"></div>
+                        </div>
+                        <span class="v109_3821">Daily Schedule</span>
+                    </div>
+                </div>
+
+
+
+                <div class="v109_3822">
+                    <span class="v109_3823">Benefícios</span>
+                    <span class="v109_3824">Equipe</span>
+                    <span class="v109_3825">Saiba mais</span>
+                </div>
+
+                <div class="v133_17">
+
+                    <table class="tabela" cellspacing="10" >
+                        <tr>
+                            <th class="verde">Horários</th>
+                            <th class="azul"> Segunda </th>
+                            <th class="azul"> Terça   </th>
+                            <th class="azul"> Quarta  </th>
+                            <th class="azul"> Quinta  </th>
+                            <th class="azul"> Sexta   </th>
+                            <th class="roxo"> Sábado  </th>
+                            <th class="roxo"> Domingo </th>
+                        </tr>
+
+                        <colgroup>
+                            <col class="verde-claro">
+                            <col class="azul-claro" >
+                            <col class="azul-claro" >
+                            <col class="azul-claro" >
+                            <col class="azul-claro" >
+                            <col class="azul-claro" >
+                            <col class="roxo-claro" >
+                            <col class="roxo-claro" >
+                        </colgroup>
+                        {% for tarefa in cronograma.tarefa_set.all %}
+                        {% if tarefa.desta_semana %}
+                        <!-- Segunda -->
+                                <tr>
+
+
+                                        <td>{{ tarefa.hora_inicio}}</td>
+
+                                        {% if tarefa.data.weekday == 0 and tarefa.desta_semana %}
+                                        <td>{{ tarefa.titulo }} - {{ tarefa.data.day }}</td>
+
+                                        {%else%}
+                                        <td> </td>
+
+                                        {%endif%}
+
+                                        {% if tarefa.data.weekday == 1 and tarefa.desta_semana %}
+                                        <td>{{ tarefa.titulo }} - {{ tarefa.data.day }}</td>
+
+                                        {%else%}
+                                        <td> </td>
+                                        {%endif%}
+
+                                        {% if tarefa.data.weekday == 2 and tarefa.desta_semana %}
+                                        <td>{{ tarefa.titulo }} - {{ tarefa.data.day }}</td>
+                                        {%else%}
+                                        <td> </td>
+
+                                        {%endif%}
+
+                                        {% if tarefa.data.weekday == 3 and tarefa.desta_semana%}
+                                        <td>{{ tarefa.titulo }} - {{ tarefa.data.day }}</td>
+
+                                        {%else%}
+                                        <td> </td>
+
+                                        {%endif%}
+
+                                        {% if tarefa.data.weekday == 4 and tarefa.desta_semana %}
+                                        <td>{{ tarefa.titulotarefa.data.day }}</td>
+
+                                        {%else%}
+                                        <td> </td>
+
+                                        {%endif%}
+
+                                        {% if tarefa.data.weekday == 5 and tarefa.desta_semana %}
+                                        <td>{{ tarefa.titulo }} - {{ tarefa.data.day }}</td>
+
+                                        {%else%}
+                                        <td> </td>
+
+                                        {%endif%}
+
+                                        {% if tarefa.data.weekday == 6 and tarefa.desta_semana %}
+                                        <td>{{ tarefa.titulo }} - {{ tarefa.data.day }}</td>
+
+                                        {%else%}
+                                        <td> </td>
+
+                                        {%endif%}
+
+                                </tr>
+                                {%endif%}
+                        {% endfor %}
+                    </table>
+
+                </div>
+                <div class="v141_107">
+                  <div class="v141_108"></div>
+                  <div class="v141_109"></div>
+              </div>
+            </div>
+    </body>
+</html>
+<br/><br/>
+
+<style>* {
+    box-sizing: border-box;
+  }
+  .v11_84 {
+    width: 100%;
+    height: 1024px;
+    background: rgba(255,255,255,1);
+    opacity: 1;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+  }
+  .v12_69 {
+    width: 100%;
+    height: 111px;
+    background: url("../images/v12_69.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    top: 892px;
+    left: 43px;
+    overflow: hidden;
+  }
+  .v12_70 {
+    width: 144px;
+    height: 57px;
+    background: rgba(81,78,190,1);
+    opacity: 1;
+    position: absolute;
+    top: 27px;
+    left: 864px;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+    overflow: hidden;
+  }
+  .v12_71 {
+    width: 49px;
+    color: rgba(255,255,255,1);
+    position: absolute;
+    top: 45px;
+    left: 912px;
+    font-family: Raleway;
+    font-weight: Bold;
+    font-size: 17px;
+    opacity: 1;
+    text-align: center;
+  }
+  .v12_72 {
+    width: 100px;
+    height: 100px;
+    background: url("../images/v12_72.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    top: 11px;
+    left: 880px;
+    overflow: hidden;
+  }
+  .v12_73 {
+    width: 100px;
+    height: 100px;
+    background: url("../images/v12_73.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+  }
+  .v12_125 {
+    width: 144px;
+    height: 57px;
+    background: url("../images/v12_125.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    top: 920px;
+    left: 1066px;
+    overflow: hidden;
+  }
+  .v12_126 {
+    width: 144px;
+    height: 57px;
+    background: rgba(81,78,190,1);
+    opacity: 1;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+    overflow: hidden;
+  }
+  .v12_127 {
+    width: 110px;
+    color: rgba(255,255,255,1);
+    position: absolute;
+    top: 18px;
+    left: 17px;
+    font-family: Raleway;
+    font-weight: Bold;
+    font-size: 17px;
+    opacity: 1;
+    text-align: center;
+  }
+  .v12_128 {
+    width: 100px;
+    height: 100px;
+    background: url("../images/v12_128.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    overflow: hidden;
+  }
+  .v12_129 {
+    width: 100px;
+    height: 100px;
+    background: url("../images/v12_129.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    top: 27px;
+    left: 864px;
+    overflow: hidden;
+  }
+  .v12_130 {
+    width: 100%;
+    height: 111px;
+    background: url("../images/v12_130.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    top: 893px;
+    left: 363px;
+    overflow: hidden;
+  }
+  .v12_131 {
+    width: 144px;
+    height: 57px;
+    background: rgba(81,78,190,1);
+    opacity: 1;
+    position: absolute;
+    top: 27px;
+    left: 864px;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+    overflow: hidden;
+  }
+  .v12_132 {
+    width: 71px;
+    color: rgba(255,255,255,1);
+    position: absolute;
+    top: 45px;
+    left: 901px;
+    font-family: Raleway;
+    font-weight: Bold;
+    font-size: 17px;
+    opacity: 1;
+    text-align: center;
+  }
+  .v12_133 {
+    width: 100px;
+    height: 100px;
+    background: url("../images/v12_133.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    top: 11px;
+    left: 880px;
+    overflow: hidden;
+  }
+  .v12_134 {
+    width: 100px;
+    height: 100px;
+    background: url("../images/v12_134.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+  }
+  .v87_13 {
+    width: 452px;
+    color: rgba(81,78,190,1);
+    position: absolute;
+    top: 179px;
+    left: 495px;
+    font-family: Abhaya Libre;
+    font-weight: Bold;
+    font-size: 50px;
+    opacity: 1;
+    text-align: left;
+  }
+  .name {
+    color: #fff;
+  }
+  .name {
+    color: #fff;
+  }
+  .name {
+    color: #fff;
+  }
+  .v109_3813 {
+    width: 100%;
+    height: 122px;
+    background: rgba(255,222,247,1);
+    opacity: 1;
+    position: absolute;
+    top: 3px;
+    left: 0px;
+    overflow: hidden;
+  }
+  .v109_3814 {
+    width: 324px;
+    height: 50px;
+    background: url("../images/v109_3814.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    top: 42px;
+    left: 24px;
+    overflow: hidden;
+  }
+  .v109_3815 {
+    width: 324px;
+    height: 50px;
+    background: url("../images/v109_3815.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+  }
+  .v109_3816 {
+    width: 56px;
+    height: 50px;
+    background: url("../images/v109_3816.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+  }
+  .v109_3817 {
+    width: 25px;
+    height: 23px;
+    background: rgba(101,98,227,1);
+    opacity: 1;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    border-radius: 50%;
+  }
+  .v109_3818 {
+    width: 25px;
+    height: 23px;
+    background: rgba(101,98,227,1);
+    opacity: 1;
+    position: absolute;
+    top: 26px;
+    left: 31px;
+    border-radius: 50%;
+  }
+  .v109_3819 {
+    width: 25px;
+    height: 23px;
+    background: rgba(225,175,255,1);
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    left: 31px;
+    border-radius: 50%;
+  }
+  .v109_3820 {
+    width: 25px;
+    height: 23px;
+    background: rgba(225,175,255,1);
+    opacity: 1;
+    position: absolute;
+    top: 26px;
+    left: 0px;
+    border-radius: 50%;
+  }
+  .v109_3821 {
+    width: 250px;
+    color: rgba(81,78,190,1);
+    position: absolute;
+    top: 5px;
+    left: 74px;
+    font-family: Abhaya Libre;
+    font-weight: Bold;
+    font-size: 40px;
+    opacity: 1;
+    text-align: left;
+  }
+  .v109_3822 {
+    width: 529px;
+    height: 35px;
+    background: url("../images/v109_3822.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    top: 52px;
+    left: 412px;
+    overflow: hidden;
+  }
+  .v109_3823 {
+    width: 135px;
+    color: rgba(0,0,0,1);
+    position: absolute;
+    top: 2px;
+    left: 0px;
+    font-family: Abhaya Libre;
+    font-weight: Regular;
+    font-size: 32px;
+    opacity: 1;
+    text-align: left;
+  }
+  .v109_3824 {
+    width: 94px;
+    color: rgba(0,0,0,1);
+    position: absolute;
+    top: 2px;
+    left: 180px;
+    font-family: Abhaya Libre;
+    font-weight: Regular;
+    font-size: 32px;
+    opacity: 1;
+    text-align: left;
+  }
+  .v109_3825 {
+    width: 210px;
+    color: rgba(0,0,0,1);
+    position: absolute;
+    top: 2px;
+    left: 319px;
+    font-family: Abhaya Libre;
+    font-weight: Regular;
+    font-size: 32px;
+    opacity: 1;
+    text-align: left;
+  }
+  .v109_3826 {
+    width: 37px;
+    height: 27px;
+    background: rgba(255,255,255,1);
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    left: 464px;
+    overflow: hidden;
+  }
+  .v109_3827 {
+    width: 18px;
+    height: 6px;
+    background: url("../images/v109_3827.png");
+    opacity: 1;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border: 1px solid rgba(0,0,0,1);
+  }
+  .v109_3828 {
+    width: 67px;
+    height: 2px;
+    background: rgba(101,233,207,1);
+    opacity: 1;
+    position: absolute;
+    top: 28px;
+    left: 72px;
+    overflow: hidden;
+  }
+  .v133_17 {
+    width: 100%;
+    height: 647px;
+    background: url("../images/v133_17.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    top: 257px;
+    left: 229px;
+    overflow: hidden;
+  }
+  .v141_110 {
+    width: 74px;
+    height: 74px;
+    background: url("../images/v141_110.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    top: 33px;
+    left: 1367px;
+    overflow: hidden;
+  }
+  .v141_111 {
+    width: 66px;
+    height: 66px;
+    background: rgba(101,233,207,1);
+    opacity: 1;
+    position: absolute;
+    top: 2px;
+    left: 1px;
+    border-radius: 50%;
+  }
+  .v141_112 {
+    width: 64px;
+    height: 64px;
+    background: url("../images/v141_112.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+  }
+  .tabela{
+    height: 550px;
+    width: 1100px;
+    background-position: center center;
+    position: relative;
+    top: 40px;
+    left: 30px;
+    font-size: 20pt;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+
+  }
+  .vermelho{
+    background-color: red;
+    padding: 5px;
+
+  }
+  .azul{
+    background-color: rgba(13, 153, 255, 1);
+    padding: 5px;
+    color: #fff;
+  }
+  .azul-claro{
+    background-color: rgba(189, 227, 255, 1);
+    padding: 5px;
+  }
+  .laranja{
+    background-color: rgba(255, 166, 41, 1);
+    padding: 5px;
+    color: #fff;
+  }
+  .laranja-claro{
+    background-color: rgba(252, 209, 156, 1);
+  }
+  .verde{
+    background-color: rgba(44, 217, 151, 1);
+    color: #fff;
+  }
+  .verde-claro{
+    background-color: rgba(175, 244, 198, 1);
+  }
+  .roxo{
+    background-color: rgba(151, 71, 255, 1);
+    color: #fff;
+  }
+  .roxo-claro{
+    background-color: rgba(228, 204, 255, 1);
+  }
+  </style>

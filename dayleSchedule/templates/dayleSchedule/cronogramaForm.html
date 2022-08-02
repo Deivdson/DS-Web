@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Abhaya+Libre&display=swap" rel="stylesheet" />
+    <!--
+    <link href="{% static 'dailySchedule/main.css' %}" rel="stylesheet" />
+    <link href="{% static 'dailySchedule/style.css' %}" rel="stylesheet" />
+    -->
+    <script src="{% static 'dailySchedule/scripts.js' %}"></script>
+    <title>Cria-01</title>
+
+</head>
+
+<body>
+    <div class="v54_127">
+        <form action="{% url 'cronograma:cronogramaForm' %}" method="post">
+            {% csrf_token %}
+
+            <span >Digite o nome do cronograma:</span>
+            <input type="text" name="titulo_cronograma">
+            <br/>
+            <div>
+                <label for="lista_alunos">Alunos: </label>
+                <select id="lista_alunos" name="alunos">
+                  {% for aluno in alunos %}
+                    <option value="{{ aluno.id }}">{{ aluno.usuario }}</option>
+
+                  {% endfor %}
+                </select>
+            </div>
+            <br/>
+
+            <span class="v54_132">Horário de início do cronograma</span>
+            <input type="date" class="v109_3311" name="inicio">
+            <br/>
+            <span class="v54_135">Horário do fim do cronograma</span>
+            <input type="date" class="v109_3312" name="fim">
+            <br/>
+            <span class="v109_3099">Privacidade do Cronograma</span>
+            <br/>
+            <span class="v109_3102">Público</span>
+            <input type="radio" name="publico" value="Publico" class="v109_3313">
+            <br/>
+            <span class="v109_3103">Privado</span>
+            <input type="radio" name="privado" value="Privado" class="v109_3315">
+            <br/>
+
+
+            <span class="v140_191">Cadastre suas matérias:</span>
+            <br/><br/>
+
+            <span>Nome da matéria:</span>
+            <input type="text" class="v140_192" name="titulo_materia">
+            <br/>
+            <span class="v144_65">Assunto</span>
+            <input type="text" class="v140_204" name="assunto">
+            <br/>
+            <span class="v144_65">Descrição</span>
+            <input type="text" class="v140_204" name="descricao">
+            <br/>
+
+            <span class="v140_197">Horário de inicio</span>
+            <input type="time" class="v140_201" id="horarioID" name="horario_inicio">
+            <br/>
+            <span class="v140_197">Horário de termino</span>
+            <input type="time" class="v140_201" id="horarioID" name="horario_fim">
+            <br/>
+
+            <span class="v140_195">Data do estudo </span>
+            <input type="date" class="v140_198" id="dataID" name="data_materia">
+
+
+            <br/>
+            <div class="v121_57">
+                <input type="submit" name="login" id="contID" class="v140_119" value="">
+                <label class="v121_59" for="contID">Continue</label>
+            </div>
+
+        </form>
+        <br/>
+        <div class="v109_3137"></div>
+        <div class="v109_3138"></div>
+        <div class="v109_3140"></div>
+        <div class="v141_97"></div>
+        <div class="v141_107">
+            <div class="v141_108"></div>
+            <div class="v141_109"></div>
+        </div>
+        <div class="v109_3751">
+            <div class="v109_3752">
+                <div class="v109_3753">
+                    <div class="v109_3754"></div>
+                    <div class="v109_3755"></div>
+                    <div class="v109_3756"></div>
+                    <div class="v109_3757"></div>
+                </div><span class="v109_3758">Daily Schedule</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="adress">
+
+            </div>
+            <label id="add_address" onclick="addAddressLine()" style="background-color: rgb(86, 14, 130); color:aliceblue">Add Address Line</label>
+            <button type="submit">Enviar</button>
+
+</body>
+
+</html>
