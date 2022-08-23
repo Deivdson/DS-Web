@@ -1,0 +1,11 @@
+<form action="{% url 'simulado:cadastro' %}" method="post">
+{% csrf_token %}
+    Nome:
+    <input type="text" name="nome" />
+    UserName:
+    <input type="text" name="username" />
+    Senha:
+    <input type="password" name="senha" />
+
+    <input type="submit" value="Cadastrar" />
+</form>

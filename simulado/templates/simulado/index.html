@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<hmtl>
+    <head>
+        <meta charset="UTF-8">
+        <title>Simulado Online</title>
+    </head>
+    <body>
+        <h1>Simulado Online</h1>
+        <br>
+        <h2>Bem vindo!</h2>
+        <nav>
+            <ul>
+                <li><a>Login</a></li>
+                <li><a href="{% url 'simulado:cadastro' %}">Cadastre-se!</a></li>
+                <li>...</li>
+            </ul>
+        </nav>
+
+        <section>
+            {% if simulados %}
+            <ul>
+            {% for simulado in simulados %}
+
+
+                <li>{{simulado}}</li>
+            {%endfor%}
+            </ul>
+            {% else %}
+            <p>Nenhum simulado disponível.</p>
+            {%endif%}
+
+
+        </section>
+
+
+        <footer></footer>
+    </body>
+
+</hmtl>
