@@ -1,0 +1,40 @@
+{% load static %}
+<html lang='pt'>
+    <head>
+        <title>App Enquete</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="{% static 'enquetes/style.css' %}">
+    </head>
+    <body>
+        <nav>
+            <div class="nav">
+            	<label class="class-label" for="toggle">&#9776;</label>
+            	<input type="checkbox" id="toggle">
+            	<div class="menu">
+                    <a href="{% url 'enquetes:index' %}">Home</a>
+            		<a href="#">Sobre</a>
+            		<a href="/admin">Admin</a>
+            	</div>
+            </div>
+            <div class="menu"> <h1>Aplicação de Enquetes</h1> </div>
+        </nav>
+
+        {% if ultima_listaq %}
+            <div class="white-box">
+            <h2>Lista das Enquetes Cadastradas</h2>
+
+            <ul>
+            {% for pergunta in ultima_listaq %}
+                <li><a href="/enquete/{{pergunta.id}}/">{{pergunta.texto}}</a>
+                (<a href=
+                    "/enquete/{{pergunta.id}}/parcial/">ver parcial</a>)
+
+                </li>
+            {%endfor%}
+            </ul>
+            </div>
+        {% else %}
+            <h3>Nenhuma enquete cadastrada até o momento.</h3>
+        {% endif %}
+    </body>
+</html>

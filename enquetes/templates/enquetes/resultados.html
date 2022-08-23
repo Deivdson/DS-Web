@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Resultado</title>
+        <meta charset="utf-8">
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'enquetes/style.css' %}">
+    </head>
+
+    <body>
+        <nav>
+            <div class="nav">
+            	<label class="class-label" for="toggle">&#9776;</label>
+            	<input type="checkbox" id="toggle">
+            	<div class="menu">
+                    <a href="{% url 'enquetes:index' %}">Home</a>
+            		<a href="#">Sobre</a>
+            		<a href="/admin">Admin</a>
+            	</div>
+            </div>
+            <div class="menu"> <h1>Aplicação de Enquetes</h1> </div>
+        </nav>
+
+        <h1>{{ pergunta.texto }}</h1>
+        <ul>
+        {% for alternativa in pergunta.alternativa_set.all %}
+            <li>{{ alternativa.texto }} -- {{alternativa.quant_votos}}
+            voto{{ alternativa.quant_votos|pluralize }}</li>
+        {% endfor %}
+        </ul>
+
+    <a href="{% url 'enquetes:detalhes' pergunta.id %}">Votar novamente?</a>
+    <a href="{% url 'enquetes:index' %}">  Principal</a>
+
+
+    </body>
+
+
+</html>
+
+

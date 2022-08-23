@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>App Enquete</title>
+        <meta charset="utf-8">
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'enquetes/style.css' %}">
+    </head>
+    <body>
+        <div class="white-box">
+            <h1>{{ pergunta.texto }}</h1>
+            {% if error_message %}
+            <p><strong>{{erro_message}}</strong></p>
+            {% endif %}
+
+            <form action="{% url 'enquetes:votacao' pergunta.id %}" method="post">
+            {% csrf_token %}
+            {% for alternativa in pergunta.alternativa_set.all%}
+                <input type="radio" name="alternativa" id="alternativa{{forloop.counter}}" value="{{alternativa.id}}">
+                <label for="alternativa{{forloop.counter}}">
+                    {{alternativa.texto}}
+                </label><br>
+                {%endfor%}
+                <input type="submit" value="Votar">
+        </form>
+        </div>
+
+        <hr/>
+
+
+
+    </body>
+</html>
