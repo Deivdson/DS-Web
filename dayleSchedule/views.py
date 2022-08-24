@@ -29,16 +29,32 @@ class cronogramaForm(View):
             ## Cronograma público possui 'privacidade' = true
             cronograma = Cronograma(titulo=titulo_cronograma, data_inicio=inicio, data_fim=fim, privacidade=True, aluno = aluno)
             cronograma.save()
-        else:
+        elif request.POST['privado']:
             ## Cronograma privado possui 'privacidade' = false
             cronograma = Cronograma(titulo=titulo_cronograma, data_inicio=inicio, data_fim=fim, privacidade=False, aluno = aluno)
             cronograma.save()
 
-        #if request.POST['titulo_materia']:
-        materia = Tarefa(titulo=request.POST['titulo_materia'], assunto=request.POST['assunto'],
-        descricao = request.POST['descricao'], hora_inicio=request.POST['horario_inicio'],
-        hora_fim=request.POST['horario_fim'], data=request.POST['data_materia'], cronograma = cronograma)
-        materia.save()
+        if request.POST['titulo_materia_1']:
+            #i = 1
+            #name = 'titulo_materia_'
+            #while request.POST[f'{name}{i}'] != None:
+                #materia = Tarefa(titulo=request.POST['titulo_materia_'+str(i)], assunto=request.POST['assunto_'+str(i)],
+                #descricao = request.POST['descricao_'+str(i)], hora_inicio=request.POST['horario_inicio_'+str(i)],
+                #hora_fim=request.POST['horario_fim_'+str(i)], data=request.POST['data_materia_'+str(i)], cronograma = cronograma)
+                #materia.save()
+                #i=i+1
+            materia = Tarefa(titulo=request.POST['titulo_materia_1'], assunto=request.POST['assunto_1'],
+            descricao = request.POST['descricao_1'], hora_inicio=request.POST['horario_inicio_1'],
+            hora_fim=request.POST['horario_fim_1'], data=request.POST['data_materia_1'], cronograma = cronograma)
+            materia.save()
+
+        if request.POST['titulo_materia_2']:
+            materia = Tarefa(titulo=request.POST['titulo_materia_2'], assunto=request.POST['assunto_2'],
+            descricao = request.POST['descricao_2'], hora_inicio=request.POST['horario_inicio_2'],
+            hora_fim=request.POST['horario_fim_2'], data=request.POST['data_materia_2'], cronograma = cronograma)
+            materia.save()
+
+
         #cronograma.tarefa.add(materia)
         #cronograma.save()
 
