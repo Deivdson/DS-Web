@@ -44,10 +44,10 @@
             <span class="v109_3099">Privacidade do Cronograma</span>
             <br/>
             <span class="v109_3102">Público</span>
-            <input type="radio" name="publico" value="Publico" class="v109_3313">
+            <input type="radio" name="privacidade" value="Publico" class="v109_3313">
             <br/>
             <span class="v109_3103">Privado</span>
-            <input type="radio" name="privado" value="Privado" class="v109_3315">
+            <input type="radio" name="privacidade" value="Privado" class="v109_3315">
             <br/>
 
 
@@ -55,31 +55,35 @@
             <br/><br/>
 
             <span>Nome da matéria:</span>
-            <input type="text" class="v140_192" name="titulo_materia">
+            <input type="text" class="v140_192" name="titulo_materia_1">
             <br/>
             <span class="v144_65">Assunto</span>
-            <input type="text" class="v140_204" name="assunto">
+            <input type="text" class="v140_204" name="assunto_1">
             <br/>
             <span class="v144_65">Descrição</span>
-            <input type="text" class="v140_204" name="descricao">
+            <input type="text" class="v140_204" name="descricao_1">
             <br/>
 
             <span class="v140_197">Horário de inicio</span>
-            <input type="time" class="v140_201" id="horarioID" name="horario_inicio">
+            <input type="time" class="v140_201" id="horarioID" name="horario_inicio_1">
             <br/>
             <span class="v140_197">Horário de termino</span>
-            <input type="time" class="v140_201" id="horarioID" name="horario_fim">
+            <input type="time" class="v140_201" id="horarioID" name="horario_fim_1">
             <br/>
 
             <span class="v140_195">Data do estudo </span>
-            <input type="date" class="v140_198" id="dataID" name="data_materia">
+            <input type="date" class="v140_198" id="dataID" name="data_materia_1">
 
+            <div id="adress">
 
+            </div>
             <br/>
+            <label id="add_address" onclick="addAddressLine()" style="background-color: rgb(86, 14, 130); color:aliceblue">Add Address Line</label>
             <div class="v121_57">
                 <input type="submit" name="login" id="contID" class="v140_119" value="">
                 <label class="v121_59" for="contID">Continue</label>
             </div>
+
 
         </form>
         <br/>
@@ -103,11 +107,9 @@
         </div>
     </div>
 
-    <div id="adress">
 
-            </div>
-            <label id="add_address" onclick="addAddressLine()" style="background-color: rgb(86, 14, 130); color:aliceblue">Add Address Line</label>
-            <button type="submit">Enviar</button>
+
+    <button type="submit">Enviar</button>
 
 </body>
 

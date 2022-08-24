@@ -32,8 +32,10 @@ ALLOWED_HOSTS = ['127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    'dayleSchedule.apps.DaylescheduleConfig',
+    'simulado.apps.SimuladoConfig',
     'enquetes.apps.EnquetesConfig',
+    'dayleSchedule.apps.DaylescheduleConfig',
+    'index.apps.IndexConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
