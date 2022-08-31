@@ -135,3 +135,6 @@ MEDIA_ROOT = '/home/Deivds0nPereir4/Antedegmon/media'
 MEDIA_URL = '/media/'
 STATIC_ROOT = '/home/Deivds0nPereir4/Antedegmon/static'
 STATIC_URL = '/static/'
+
+
+LOGOUT_REDIRECT_URL = '/'
