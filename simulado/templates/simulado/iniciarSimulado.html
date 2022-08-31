@@ -1,0 +1,20 @@
+<h2>{{simulado.titulo}}</h2>
+<form action="{% url 'simulado:iniciarSimulado' simulado.id %}" method="post" id="formSimulado">
+{% csrf_token %}
+{% for questao in simulado.questao_set.all %}
+<ul>
+    <li>{{questao.texto}}</li>
+    {% for alt in questao.alternativa_set.all %}
+    
+        <ul>
+            <li>
+                <label>{{alt.texto}}</label>
+                <input type="radio" name="{{questao.id}}" value="{{alt.id}}" id="{{questao.id}}">
+            </li>
+        </ul>
+    
+    {% endfor %}
+</ul>
+{% endfor %}
+<input type="submit" value="Submeter simulado">
+</form>

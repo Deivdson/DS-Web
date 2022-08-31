@@ -1,0 +1,95 @@
+<h1>Criar Simulado</h1>
+<form action="{% url 'simulado:formSimulado' %}" method="post">
+{% csrf_token %}
+
+<label>Insira o título do Simulado:</label>
+<input type="text" name="titulo" id="titulo">
+<br><br>
+<label>Insira umma descrição:</label>
+<input type="text" name="descricao" id="descricao">
+
+<section>
+    <label><h3>Cadastre as questões:</h3></label>
+    <ul>
+        <li>
+            <label><h3>Questão 1</h3></label>
+            <input type="text" name="titulo_questao1" id="titulo_questao1">
+            <h4>Valor da questão: </h4>
+            <input type="number" name="valor_q1" id="valor_q1">
+            <h4>Alternativas:</h4>
+            <ul>
+                <li>
+                    <label><h5>Alternativa a)</h5></label>
+                    <input type="text" name="q1_alt1" id="q1_alt1">
+                    correta?
+                    <input type="radio" name="alt_q1" value="q1_alt1">
+                </li>
+                <li>
+                    <label><h5>Alternativa b)</h5></label>
+                    <input type="text" name="q1_alt2" id="q1_alt2">
+                    correta?
+                    <input type="radio" name="alt_q1" value="q1_alt2">
+                </li>
+                <li>
+                    <label><h5>Alternativa c)</h5></label>
+                    <input type="text" name="q1_alt3" id="q1_alt3">
+                    correta?
+                    <input type="radio" name="alt_q1" value="q1_alt3">
+                </li>
+                <li>
+                    <label><h5>Alternativa d)</h5></label>
+                    <input type="text" name="q1_alt4" id="q1_alt4">
+                    correta?
+                    <input type="radio" name="alt_q1" value="q1_alt4">
+                </li>
+                <br>
+                <li>
+                    <label><strong>Informe a resposta correta:</strong></label><br>
+                    <input type="text" name="resposta_q1" id="resposta_q1">
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <label><h3>Questão 2</h3></label>
+            <input type="text" name="titulo_questao2" id="titulo_questao2">
+            <h4>Valor da questão:</h4>
+            <input type="number" name="valor_q1" id="valor_q1"><br>
+            <h4>Alternativas:</h4>
+            <ul>
+                <li>
+                    <label><h5>Alternativa a)</h5></label>
+                    <input type="text" name="q2_alt1" id="q2_alt1">
+                    correta?
+                    <input type="radio" name="alt_q2" value="q2_alt1">
+                </li>
+                <li>
+                    <label><h5>Alternativa b)</h5></label>
+                    <input type="text" name="q2_alt2" id="q2_alt2">
+                    correta?
+                    <input type="radio" name="alt_q2" value="q2_alt2">
+                </li>
+                <li>
+                    <label><h5>Alternativa c)</h5></label>
+                    <input type="text" name="q2_alt3" id="q2_alt3">
+                    correta?
+                    <input type="radio" name="alt_q2" value="q2_alt3">
+                </li>
+                <li>
+                    <label><h5>Alternativa d)</h5></label>
+                    <input type="text" name="q2_alt4" id="q2_alt4">
+                    correta?
+                    <input type="radio" name="alt_q2" value="q2_alt4">
+                </li>
+                <br>
+                <li>
+                    <label><strong>Informe a resposta correta:</strong></label><br>
+                    <input type="text" name="resposta_q2" id="resposta_q2">
+                </li>
+            </ul>
+        </li>
+        
+    </ul>
+</section>
+    <input type="submit" value="Salvar simulado">
+</form>

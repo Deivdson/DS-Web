@@ -1,0 +1,16 @@
+{% if msg_erro %}
+<p>{{msg_erro}}</p>
+{% endif %}
+<h2>{{simulado.titulo}}</h2>
+{% for questao in simulado.questao_set.all %}
+<ul>
+    <li>{{questao.texto}}</li>
+    {% for alt in questao.alternativa_set.all %}
+        <ul>
+            <li>{{alt.texto}}</li>
+        </ul>
+    {% endfor %}
+</ul>
+{% endfor %}
+
+<a href="{% url 'simulado:iniciarSimulado' simulado.id %}">Iniciar Simulado!</a>

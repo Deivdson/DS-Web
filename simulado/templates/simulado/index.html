@@ -11,9 +11,21 @@
         <h2>Bem vindo!</h2>
         <nav>
             <ul>
+            {% if user.is_authenticated %}
+                <li class="has-submenu"><a href="#">{{ user.username }}</a>
+                <ul class="sub-menu">
+                    <li><a href="{% url 'logout' %}?next=/"
+                            class="external">Logout</a></li>
+                </ul>
+                </li>
+            {% else%}
+                <li><a href="{% url 'logout'%}">Logout</a></li>
+            {% endif %}
+            
+                
                 <li><a>Login</a></li>
                 <li><a href="{% url 'simulado:cadastro' %}">Cadastre-se!</a></li>
-                <li>...</li>
+                <li><a href="{% url 'simulado:formSimulado' %}">Criar simulado</a></li>
             </ul>
         </nav>
 
@@ -23,7 +35,10 @@
             {% for simulado in simulados %}
 
 
-                <li>{{simulado}}</li>
+                <li>
+                    <a href="{% url 'simulado:detalhes' simulado.id %}">{{simulado}}</a>
+                    <a href="{% url 'simulado:resultado' simulado.id %}">resultado</a>
+                </li>
             {%endfor%}
             </ul>
             {% else %}

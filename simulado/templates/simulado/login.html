@@ -1,0 +1,39 @@
+
+<h2>Faça o seu Login</h2>
+
+<form id="contact" action="{% url 'simulado:login' %}" method="post">
+{% csrf_token %}
+<div class="row">
+    <div class="col-md-12">
+        <fieldset>
+        <input name="name" type="text" id="name" placeholder="Digite o seu nome de usuário..." required="">
+        </fieldset>
+    </div>
+    <div class="col-md-12">
+        <fieldset>
+        <input name="email" type="password" id="email" placeholder="Digite a sua senha..." required="">
+        </fieldset>
+    </div>
+    <div class="col-md-12">
+    <fieldset>
+        <button type="submit" id="form-submit" class="button">Realize o Login</button>
+    </fieldset>
+    </div>
+</div>
+</form>
+
+
+ <section class="section video" data-section="section5">
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-md-12">
+          <div class="left-content">
+            <span>Ainda não tem cadastro?</span>
+            <h4><em>Faça o seu cadastro</em> agora mesmo</h4>
+            <div class="main-button"><a rel="nofollow" href="{% url 'simulado:cadastro' %}" target="_parent">Cadastro de Usuário</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
