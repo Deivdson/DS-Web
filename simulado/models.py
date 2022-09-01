@@ -20,15 +20,22 @@ class Simulado(models.Model):
     def __str__(self):
         return self.titulo
 
+
+
 class Questao(models.Model):
     texto = models.TextField('texto')
     valor = models.IntegerField(default=0)
     simulado = models.ForeignKey(Simulado, on_delete = models.CASCADE)
+    #resposta = models.OneToOneField(Resposta, on_delete = models.CASCADE, null=True)
     class Meta:
         verbose_name_plural = 'Questões'
 
     def __str__(self):
         return self.texto
+    def alternativa_correta(self):
+        for alt in self.alternativa_set.all():
+            if alt.correta:
+                return alt
 
 class Alternativa(models.Model):
     texto = models.TextField('texto')
@@ -38,9 +45,10 @@ class Alternativa(models.Model):
     def __str__(self):
         return self.texto
 
-class Resposta(models.Model):
-    texto = models.TextField('texto')
-    questao = models.ForeignKey(Questao, on_delete = models.CASCADE)
 
     def __str__(self):
         return self.texto
+
+class Resposta(models.Model):
+    texto = models.TextField('texto')
+    questao = models.OneToOneField(Questao, on_delete = models.CASCADE)

@@ -19,11 +19,10 @@
                 </ul>
                 </li>
             {% else%}
-                <li><a href="{% url 'logout'%}">Logout</a></li>
+                <li><a href="{% url 'login'%}">Login</a></li>
             {% endif %}
-            
-                
-                <li><a>Login</a></li>
+
+
                 <li><a href="{% url 'simulado:cadastro' %}">Cadastre-se!</a></li>
                 <li><a href="{% url 'simulado:formSimulado' %}">Criar simulado</a></li>
             </ul>

@@ -1,19 +1,25 @@
 
 <h2>{{simulado.titulo}}</h2>
-<p>Pontuação: {{simulado.pontuacao}}</p>
+<p>Pontuação: {{pontuacao}}</p>
 {% for questao in simulado.questao_set.all %}
 <ul>
-    <li>{{questao.texto}}</li>
+    <li>{{questao.texto}} - {{questao.valor}}</li>
     {% for alt in questao.alternativa_set.all %}
         <ul>
             <li>
                 {{alt.texto}}
                 {% if alt.correta %}
-                    Alternativa correta
+                     <- Alternativa correta
                 {% endif %}
             </li>
         </ul>
     {% endfor %}
 </ul>
-<p>questao_get_resposta</p>
+<label>Resposta:</label>
+{% for resp in resposta_set.all %}
+
+{% endfor %}
+<p>-{{questao.resposta.texto}}-</p>
+<hr />
+
 {% endfor %}
