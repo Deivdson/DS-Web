@@ -1,22 +1,29 @@
 
 <h2>Faça o seu Login</h2>
 
+{% if form.errors %}
+   {% for error in form.erros %}
+      {{ error }}
+   {% endfor %}
+{% endif %}
+
 <form id="contact" action="{% url 'simulado:login' %}" method="post">
 {% csrf_token %}
+<input type="hidden" name="next" value="{{ next }}"/>
 <div class="row">
     <div class="col-md-12">
         <fieldset>
-        <input name="name" type="text" id="name" placeholder="Digite o seu nome de usuário..." required="">
+        Digite o seu login: {{ form.username }}
         </fieldset>
     </div>
     <div class="col-md-12">
         <fieldset>
-        <input name="email" type="password" id="email" placeholder="Digite a sua senha..." required="">
+        Digite a sua senha: {{ form.password }}
         </fieldset>
     </div>
     <div class="col-md-12">
     <fieldset>
-        <button type="submit" id="form-submit" class="button">Realize o Login</button>
+        <input type="submit" id="form-submit" class="button" value="Realize o Login"/>
     </fieldset>
     </div>
 </div>

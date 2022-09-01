@@ -23,7 +23,8 @@ class cadastro(View):
         nome = request.POST['nome']
         senha = request.POST['senha']
 
-        user = User.objects.create_user(username, 'email', nome)
+        user = User.objects.create_user(username, 'email', senha)
+        user.first_name = nome
         user.save()
         simulados = Simulado.objects.all()
         return render(request, 'simulado/index.html', {'simulados':simulados, 'msg':'sucesso'})
@@ -34,7 +35,7 @@ class cadastro(View):
 class formSimulado(View):
     def get(self, request,*args,**kwargs):
         return render(request,'simulado/formSimulado.html')
-    
+
     def post(self, request,*args,**kwargs):
         ts = request.POST['titulo']
         desc = request.POST['descricao']
@@ -48,7 +49,7 @@ class formSimulado(View):
 
         q1.save()
         q2.save()
-        
+
         q1_alt1 = Alternativa(texto = request.POST['q1_alt1'], questao = q1)
         q1_alt1.save()
         q1_alt2 = Alternativa(texto = request.POST['q1_alt2'], questao = q1)
@@ -74,7 +75,7 @@ class formSimulado(View):
         resposta2 = Resposta(texto = request.POST['resposta_q2'], questao=q2)
         resposta1.save()
         resposta2.save()
-        
+
         alternativas = request.POST.getlist('alt_q1')
         for alt in alternativas:
             if alt=='q1_alt1':
@@ -89,7 +90,7 @@ class formSimulado(View):
             if alt=='q1_alt4':
                 alternativa = get_object_or_404(pk='q1_alt4')
                 alternativa.correta=True
-        
+
         alternativas = request.POST.getlist('alt_q2')
         for alt in alternativas:
             if alt=='q2_alt1':
@@ -127,33 +128,44 @@ class iniciarSimulado(View):
         simulado = get_object_or_404(Simulado, pk= kwargs['pk'])
         request.session['id_simulado']=kwargs['pk']
         return render(request, 'simulado/iniciarSimulado.html',{'simulado':simulado})
-        
+
     def post(self, request, *args, **kwargs):
         simulado = get_object_or_404(Simulado, pk= request.session['id_simulado'])
         del request.session['id_simulado']
-        questoes = Questao.objects.all().filter(simulado = simulado) 
-        
-        for q in questoes:
-            try:
-                correta = Alternativa.objects.all().filter(correta=True).filter(questao=q)
-                id_alt = request.POST[q.id]
-                selecionada = get_object_or_404(Alternativa, pk=id_alt)
-            except (KeyError, Alternativa.DoesNotExist):
-                contexto = {
-                    'simulado': simulado,
-                    'msg_erro': 'Selecione uma alternativa!'
-                }
-                return render(request,'simulado/detalhes.html',contexto)
-            else:
-                if selecionada.correta:
-                    simulado.pontuacao+=q.valor
-                    simulado.save()
-                return HttpResponseRedirect(
-                    reverse('simulado:resultado',  args=(simulado.id,))
-                )
+        questoes = Questao.objects.all().filter(simulado = simulado)
 
-       #retornar resultado 
-        #return render(request, 'simulado/resultado.html',{'simulado':simulado})
+        # pontuacao = 0
+        for q in questoes:
+            #correta = Alternativa.objects.all().filter(correta=True).filter(questao=q)
+            #alternativas = request.POST.getlist(q.id)
+            id_alt = request.POST[q.id]
+            alt = get_object_or_404(Alternativa,pk=id_alt)
+            if alt.correta:
+                pontuacao += q.valor
+            #for id in alternativas:
+            #    alt = get_object_or_404(Alternativa,pk=id)
+            #    if alt.correta:
+            #        simulado.pontuacao+=q.valor
+            #        simulado.save()
+
+#            id_alt = request.POST[q.id]
+#            selecionada = get_object_or_404(Alternativa, pk=id_alt)
+#            if selecionada:
+#                if selecionada.correta:
+#                        simulado.pontuacao+=q.valor
+#                        simulado.save()
+#            else:
+#                contexto = {
+#                    'simulado': simulado,
+#                    'msg_erro': 'Selecione uma alternativa!'
+#                }
+#                return render(request,'simulado/detalhes.html',contexto)
+#
+#        return HttpResponseRedirect(
+#            reverse('simulado:resultado',  args=(simulado.id,))
+#        )
+       #retornar resultado
+        return render(request, 'simulado/resultado.html',{'simulado':simulado,'pontuacao':pontuacao})
 
 #####
 #class VotacaoView(View):
